@@ -26,25 +26,19 @@ model Restaurant {
     category        String
     city            String
     desc            String
-    id              String      @id @default(cuid())
-    images          Image[]
+    id              String      @id @default(cuid()) 
+    images          String[]
     name            String
     price_range     String
-    featured        Featured[]
+    featured        Featured?
     isFavorite      Boolean     @default(false) 
 }
 
 model Featured {
     id              String      @id @default(cuid())
-    text            String
+    text            String  
     icon            String
-    restaurantId    String 
+    restaurantId    String      @unique
     restaurant      Restaurant  @relation(fields: [restaurantId], references: [id])
 }
 
-model Image {
-    id            String     @id @default(cuid())
-    url           String     // Store the image URL or path
-    restaurantId  String
-    restaurant    Restaurant @relation(fields: [restaurantId], references: [id])
-}
