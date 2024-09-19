@@ -1,53 +1,65 @@
-import Link from "next/link";
+import React from 'react';
+import SearchBar from '../app/_components/searchBar';
+import Categories from '../app/_components/categories';
+import BottomMenu from '../app/_components/bottommenu';
+import Restaurants from './_components/restaurant';
 
-import { LatestPost } from "~/app/_components/post";
-import { api, HydrateClient } from "~/trpc/server";
 
-export default async function Home() {
-  const hello = await api.post.hello({ text: "from tRPC" });
-
-  void api.post.getLatest.prefetch();
-
+const Home: React.FC = () => {
   return (
-    <HydrateClient>
-      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-        <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-          <h1 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">
-            Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
-          </h1>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-            <Link
-              className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 hover:bg-white/20"
-              href="https://create.t3.gg/en/usage/first-steps"
-              target="_blank"
-            >
-              <h3 className="text-2xl font-bold">First Steps →</h3>
-              <div className="text-lg">
-                Just the basics - Everything you need to know to set up your
-                database and authentication.
-              </div>
-            </Link>
-            <Link
-              className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 hover:bg-white/20"
-              href="https://create.t3.gg/en/introduction"
-              target="_blank"
-            >
-              <h3 className="text-2xl font-bold">Documentation →</h3>
-              <div className="text-lg">
-                Learn more about Create T3 App, the libraries it uses, and how
-                to deploy it.
-              </div>
-            </Link>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <p className="text-2xl text-white">
-              {hello ? hello.greeting : "Loading tRPC query..."}
-            </p>
-          </div>
+    <div className="flex flex-col h-screen">
+      {/* Search Bar */}
+      <SearchBar />
 
-          <LatestPost />
+      {/* Categories */}
+      <Categories />
+
+      {/* Scrollable List of items */}
+      <div className="flex-1 overflow-y-auto px-4 py-2">
+        <Restaurants />
+        <div className="mb-4 rounded-lg overflow-hidden border border-gray-200">
+          <img src="/path-to-image.jpg" alt="item" className="w-full h-40 object-cover" />
+          <div className="p-4">
+            <h3 className="text-lg font-bold">카쿠라자카 이시카와</h3>
+            <p className="text-sm text-gray-600">최고의 오마카세</p>
+            <span className="text-sm text-yellow-500">⭐ 4.8 (2)</span>
+          </div>
         </div>
-      </main>
-    </HydrateClient>
+
+        <div className="mb-4 rounded-lg overflow-hidden border border-gray-200">
+          <img src="/path-to-image.jpg" alt="item" className="w-full h-40 object-cover" />
+          <div className="p-4">
+            <h3 className="text-lg font-bold">스시하루</h3>
+            <p className="text-sm text-gray-600">오사카 나카노시마</p>
+            <span className="text-sm text-yellow-500">⭐ 0 (0)</span>
+          </div>
+        </div>
+
+        <div className="mb-4 rounded-lg overflow-hidden border border-gray-200">
+          <img src="/path-to-image.jpg" alt="item" className="w-full h-40 object-cover" />
+          <div className="p-4">
+            <h3 className="text-lg font-bold">스시하루</h3>
+            <p className="text-sm text-gray-600">오사카 나카노시마</p>
+            <span className="text-sm text-yellow-500">⭐ 0 (0)</span>
+          </div>
+        </div>
+
+        <div className="mb-4 rounded-lg overflow-hidden border border-gray-200">
+          <img src="/path-to-image.jpg" alt="item" className="w-full h-40 object-cover" />
+          <div className="p-4">
+            <h3 className="text-lg font-bold">스시하루</h3>
+            <p className="text-sm text-gray-600">오사카 나카노시마</p>
+            <span className="text-sm text-yellow-500">⭐ 0 (0)</span>
+          </div>
+        </div>
+
+        {/* Add more items as needed */}
+      </div>
+
+      {/* Bottom Navigation */}
+      <BottomMenu />
+    </div>
   );
-}
+};
+
+export default Home;
