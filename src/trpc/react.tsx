@@ -35,6 +35,13 @@ export type RouterInputs = inferRouterInputs<AppRouter>;
  * @example type HelloOutput = RouterOutputs['example']['hello']
  */
 export type RouterOutputs = inferRouterOutputs<AppRouter>;
+//to get the restaurant list.
+type allRestaurantOutput = RouterOutputs["restaurant"]["getAll"];
+export type allRestaurants = allRestaurantOutput[number];
+//to change the status of isFavourite
+type changeFavourite = RouterOutputs["restaurant"]["updateFavourite"];
+export type updateFavourite = changeFavourite;
+
 
 export function TRPCReactProvider(props: { children: React.ReactNode }) {
   const queryClient = getQueryClient();

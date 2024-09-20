@@ -18,6 +18,8 @@
     "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@prisma/client": "^5.19.1",
     "@t3-oss/env-nextjs": "^0.10.1",
     "@tanstack/react-query": "^5.56.2",

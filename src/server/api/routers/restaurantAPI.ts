@@ -9,39 +9,39 @@ export const restaurantRouter = createTRPCRouter({
                 featured: true,  // as it's a relation
             },
         });
-        return restaurantList;
-        // return restaurantList.map(({
-        //     rating,
-        //     rating_count,
-        //     category,
-        //     city,
-        //     desc,
-        //     id,
-        //     images,
-        //     name,
-        //     price_range,
-        //     featured,
-        //     isFavorite
-        // }) => ({
-        //     rating,
-        //     rating_count,
-        //     category,
-        //     city,
-        //     desc,
-        //     id,
-        //     images,
-        //     name,
-        //     price_range,
-        //     featured,
-        //     isFavorite
-        // }));
+        //return restaurantList;
+        return restaurantList.map(({
+            rating,
+            rating_count,
+            category,
+            city,
+            desc,
+            id,
+            images,
+            name,
+            price_range,
+            featured,
+            isFavorite
+        }) => ({
+            rating,
+            rating_count,
+            category,
+            city,
+            desc,
+            id,
+            images,
+            name,
+            price_range,
+            featured,
+            isFavorite
+        }));
     }),
 
     //to update the favourite status
     updateFavourite: publicProcedure
         .input(z.object({
             id: z.string(),          // The ID of the record
-            isFavorite: z.boolean()    
+            isFavorite: z.boolean()
         }))
         .mutation(async ({ ctx, input }) => {
             return ctx.db.restaurant.update({
@@ -49,4 +49,9 @@ export const restaurantRouter = createTRPCRouter({
                 data: { isFavorite: input.isFavorite } //update the favourite status
             });
         }),
+    getTodos: publicProcedure.query(async () => {
+        return {
+            greeting: `Hello`,
+        };
+    }),
 });
