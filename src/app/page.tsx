@@ -26,7 +26,7 @@ const Home: React.FC = () => {
       </div>
 
       {/* Bottom Navigation */}
-      <div className="fixed bottom-0 w-full p-4">
+      <div className="fixed bottom-0 w-full p-4 max-h-[30px]">
         <BottomMenu />
       </div>
     </div>

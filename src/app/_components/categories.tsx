@@ -71,7 +71,7 @@ const textByStoreCategory = {
 
 const Categories: React.FC = () => {
   return (
-    <div className="flex space-x-4 px-4 py-0 overflow-x-auto scrollbar-hide mx-4">
+    <div className="flex space-x-4 px-4 py-0 mx-4 categories-container">
       {Object.values(STORE_CATEGORY).map((category) => (
         <button
           key={category}

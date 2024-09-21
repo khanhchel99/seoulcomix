@@ -28,3 +28,31 @@
   object-fit: contain;
   /* This keeps the image from being cut */
 }
+
+.categories-container {
+  display: flex;
+  space-x-4: 1rem;
+  padding: 0 1rem;
+  overflow-x: auto;
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+.categories-container::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+
+.categories-container:hover {
+  scrollbar-width: thin; /* For Firefox */
+  -ms-overflow-style: auto; /* For Internet Explorer and Edge */
+}
+
+.categories-container:hover::-webkit-scrollbar {
+  display: block; /* For Chrome, Safari, and Opera */
+  height: 8px; /* Adjust the height of the scrollbar */
+}
+
+.categories-container:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5); /* Change the color of the scrollbar thumb */
+  border-radius: 4px; /* Add rounded corners to the scrollbar thumb */
+}
