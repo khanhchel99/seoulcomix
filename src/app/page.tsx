@@ -7,7 +7,9 @@ import Restaurants from './_components/restaurants';
 
 const Home: React.FC = () => {
   return (
-    <div className="flex flex-col h-screen p-4">
+    <div
+      className="flex flex-col h-screen p-4 max-w-[700px] mx-auto"
+    >
       {/* Search Bar */}
       <div className="mb-4">
         <SearchBar />
