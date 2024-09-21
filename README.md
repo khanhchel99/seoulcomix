@@ -16,12 +16,18 @@ PostgreSQL
 ## How do I deploy this?
 1. Clone the Repository
 
+
 2. Install Dependencies by running:
+   
 npm install
 
-3. Configure Environment Variables:
-- Run: 
+4. Configure Environment Variables:
+   
+- Run:
+  
 cp .env.example .env
+
+
 
 - Update the .env file with your database URL and any other environment variables required by the app
 
