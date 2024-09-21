@@ -20,6 +20,18 @@ PostgreSQL
 npm install
 
 3. Configure Environment Variables:
-- In the .
+- Run: 
+cp .env.example .env
 
+- Update the .env file with your database URL and any other environment variables required by the app
 
+4. Set up Prisma:
+    4.1. Push the Prisma schema to your database: 
+        npx prisma db push
+    4.2. If there are migrations, run:
+        npx prisma migrate dev
+    4.3. Seed the database:
+        npx prisma db seed
+
+5. Run Development Server:
+npm run dev
